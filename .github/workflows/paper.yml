@@ -1,14 +1,13 @@
 name: ETH and multiasset paper comparison
-# The schedule is inert until the approved new-start gate and validation pass.
+# External timer dispatches this workflow only after reviewed storage evidence.
 on:
   push:
     paths:
       - 'control.json'
       - '.github/workflows/paper.yml'
       - 'scripts/launch_gate.py'
-  schedule:
-    # Equivalent times; refresh the schedule registration after missing triggers.
-    - cron: '12,27,42,57 * * * *'
+      - 'scripts/validation_gate.py'
+      - 'validation/external-receipts.json'
   workflow_run:
     workflows: ['Public data and persistence validation']
     types: [completed]

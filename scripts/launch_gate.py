@@ -7,6 +7,7 @@ from datetime import datetime
 from pathlib import Path
 
 import probe
+import validation_gate
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -44,7 +45,7 @@ def decide(root, event, operation='tick', confirmation=''):
     history = probe.load(root / 'validation/history.json')
     if any(not item['payload']['success'] for item in history):
         raise ValueError('Validation failed; preserve evidence and review before starting')
-    if probe.stop_reason(history) != 'two_scheduled_checks_complete':
+    if not validation_gate.ready(root, history):
         count = len({x['payload']['slot'] for x in history if x['payload']['success'] and x['payload']['event'] == 'schedule'})
         return {'run': False, 'reason': f'予約検証の成功 {count}/2 回。まだ相場取得・帳簿作成・売買は行いません。'}
     if event == 'workflow_dispatch' and (operation != 'start' or confirmation != identity):

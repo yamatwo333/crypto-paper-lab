@@ -1,9 +1,6 @@
 name: Public data and persistence validation
 on:
   workflow_dispatch:
-  schedule:
-    # Register in the web editor; preserve the original 15-minute slots.
-    - cron: '7,22,37,52 * * * *'
 permissions:
   contents: write
   actions: write

@@ -17,6 +17,7 @@ sys.path.insert(0, str(ROOT / 'comparison'))
 import runner
 import ledger_store
 import probe
+import validation_gate
 
 
 def save(path, value):
@@ -147,7 +148,7 @@ def start(root, expected_id, collector=None, clock=None):
     hashes, rules = sources(root)
     if directory.exists():
         raise ValueError('Experiment directory already exists; preserve it, never reinitialize')
-    if probe.stop_reason(probe.load(root / 'validation/history.json')) != 'two_scheduled_checks_complete':
+    if not validation_gate.ready(root):
         raise ValueError('Two distinct successful scheduled storage checks are required before starting')
     collector, clock = collector or runner.collect, clock or runner.now
     with tempfile.TemporaryDirectory() as temp:

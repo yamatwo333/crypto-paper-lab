@@ -77,6 +77,14 @@ class LaunchGateTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Source differs'):
             gate.decide(self.root, 'schedule')
 
+    def test_failed_full_window_check_prevents_start(self):
+        self.record(1)
+        self.record(2)
+        payload = {'ok': False, 'policy_denial': True}
+        (self.root / 'validation/window.json').write_text(json.dumps({'payload': payload, 'sha256': gate.probe.digest(payload)}))
+        with self.assertRaisesRegex(ValueError, 'price-window validation failed'):
+            gate.decide(self.root, 'workflow_run')
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

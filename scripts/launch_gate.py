@@ -36,6 +36,11 @@ def decide(root, event, operation='tick', confirmation=''):
         return {'run': True, 'operation': 'tick', 'confirmation': '', 'reason': '保存済みの帳簿から継続。'}
     if (root / 'experiments' / identity).exists():
         raise ValueError('Partial or existing experiment found; never overwrite or initialize again')
+    window_path = root / 'validation/window.json'
+    if window_path.exists():
+        window = json.loads(window_path.read_text())
+        if window['sha256'] != probe.digest(window['payload']) or not window['payload'].get('ok'):
+            raise ValueError('Full price-window validation failed or is corrupt; review before starting')
     history = probe.load(root / 'validation/history.json')
     if any(not item['payload']['success'] for item in history):
         raise ValueError('Validation failed; preserve evidence and review before starting')

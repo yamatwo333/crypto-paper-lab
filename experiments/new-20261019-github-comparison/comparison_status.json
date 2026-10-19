@@ -1,8 +1,8 @@
 {
   "started_jst": "2026/10/19 20:58:22 JST",
-  "last_slot_jst": null,
-  "last_observed_jst": null,
-  "health": "starting",
+  "last_slot_jst": "2026/10/19 20:45:00 JST",
+  "last_observed_jst": "2026/10/19 20:58:51 JST",
+  "health": "ok",
   "last_error": null,
   "missing_slots": 0,
   "failed_runs": 0,

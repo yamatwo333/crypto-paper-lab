@@ -1,0 +1,36 @@
+{
+  "job": {
+    "title": "Clock-only external trigger validation",
+    "enabled": false,
+    "saveResponses": true,
+    "url": "https://api.github.com/repos/yamatwo333/crypto-paper-lab/actions/workflows/scheduler-diagnostic.yml/dispatches",
+    "requestMethod": 1,
+    "requestTimeout": 30,
+    "redirectSuccess": false,
+    "schedule": {
+      "timezone": "Asia/Tokyo",
+      "expiresAt": 20261019203000,
+      "hours": [-1],
+      "mdays": [-1],
+      "minutes": [7, 22, 37, 52],
+      "months": [-1],
+      "wdays": [-1]
+    },
+    "notification": {
+      "mode": 0,
+      "onFailure": false,
+      "onSuccess": false,
+      "onDisable": false,
+      "onSslCertExpiry": false
+    },
+    "extendedData": {
+      "headers": {
+        "Accept": "application/vnd.github+json",
+        "Content-Type": "application/json",
+        "X-GitHub-Api-Version": "2026-03-10",
+        "Authorization": "Bearer REPLACE_LOCALLY_WITH_REPOSITORY_SCOPED_TOKEN"
+      },
+      "body": "{\"ref\":\"main\"}"
+    }
+  }
+}

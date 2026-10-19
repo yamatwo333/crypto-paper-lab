@@ -1,11 +1,6 @@
-name: Temporary scheduler diagnostic
+name: Clock-only trigger validation
 on:
-  push:
-    paths:
-      - '.github/workflows/scheduler-diagnostic.yml'
   workflow_dispatch:
-  schedule:
-    - cron: '3-58/5 * * * *'
 permissions:
   contents: read
 jobs:

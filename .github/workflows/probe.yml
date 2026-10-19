@@ -1,0 +1,46 @@
+name: Public data and persistence validation
+on:
+  push:
+    paths:
+      - '.github/workflows/probe.yml'
+      - 'scripts/probe.py'
+  workflow_dispatch:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: paper-validation-writer
+  cancel-in-progress: false
+jobs:
+  validate:
+    if: github.repository == 'yamatwo333/crypto-paper-lab' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: main
+      - run: python3 scripts/check_sources.py
+      - id: probe
+        run: python3 scripts/probe.py run
+      - name: Verify saved records in a separate process
+        if: always() && steps.probe.outcome != 'skipped'
+        run: python3 scripts/probe.py verify
+      - name: Commit only validation records
+        if: always() && steps.probe.outcome != 'skipped'
+        run: |
+          if [ ! -f validation/history.json ]; then exit 1; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- validation/history.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Record public-data and persistence check'
+          git push origin HEAD:main
+      - name: Stop this validation schedule after completion or a denial
+        if: always() && (steps.probe.outputs.stop == 'true' || failure())
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method PUT "repos/$GITHUB_REPOSITORY/actions/workflows/probe.yml/disable"
+

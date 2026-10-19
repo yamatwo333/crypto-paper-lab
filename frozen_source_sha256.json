@@ -1,0 +1,12 @@
+{
+  "work/paper-trading/paper.py": "5da5a2799eec560aef2bed8a964afa1095ca52e4b13df02cc7567b6690d20d42",
+  "work/paper-trading/frozen/engine.py": "93e6677d18d3c97119bb038f75e8a6d066f3a3ba5886472982e5da20cca5dcaf",
+  "work/paper-trading/frozen/protocol.json": "22fbfdfb1fff638d7c8836f7ab088db0c50a468afd3181bf82604cfa26627b5c",
+  "comparison/runner.py": "96fa0899d6d7b8042bff81e77b74cbb63f59ac38f122cde21e4f9279955bc63a",
+  "comparison/core.py": "8f234ec92e4b75a00167f62b6e23a3a8a34b33d45888e70eff4e24367bc4944c",
+  "comparison/protocol.json": "edd0998f9a98264b4da2d0ab2bdc265fce15c1b00b1301a0cc8f5f059f026526",
+  "comparison/rules.json": "cd11640b8413d2478f43e3c069cbf1306e3fb30dfcf0df36f67cb7c4ad7c099f",
+  "comparison/frozen/paper.py": "5da5a2799eec560aef2bed8a964afa1095ca52e4b13df02cc7567b6690d20d42",
+  "comparison/frozen/engine.py": "93e6677d18d3c97119bb038f75e8a6d066f3a3ba5886472982e5da20cca5dcaf",
+  "comparison/frozen/protocol.json": "22fbfdfb1fff638d7c8836f7ab088db0c50a468afd3181bf82604cfa26627b5c"
+}

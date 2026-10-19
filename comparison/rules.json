@@ -1,0 +1,18 @@
+{
+  "btc_jpy": {
+    "unit_amount": 0.0001,
+    "price_digits": 0
+  },
+  "xrp_jpy": {
+    "unit_amount": 0.0001,
+    "price_digits": 3
+  },
+  "eth_jpy": {
+    "unit_amount": 0.0001,
+    "price_digits": 0
+  },
+  "sol_jpy": {
+    "unit_amount": 0.0001,
+    "price_digits": 1
+  }
+}

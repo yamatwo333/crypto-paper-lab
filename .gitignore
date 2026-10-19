@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*
+*.sqlite3
+*.sqlite3-*
+*.lock
+comparison/state/
+comparison/cache/
+work/paper-trading/data/
+work/paper-trading/config.json
+outputs/
+_runtime/
+

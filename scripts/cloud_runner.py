@@ -67,6 +67,39 @@ def public_status(settings, state):
     return result
 
 
+def status_page(directory, result):
+    summary = result['summary']
+    if result.get('stop'):
+        label = '停止。通信拒否などの確認が必要です。'
+    elif result['operation'] == 'start_new_experiment':
+        label = '初期帳簿を作成。別の実行からの初回観測を確認する段階です。'
+    elif not result['ok']:
+        label = '相場取得に失敗。この回は売買せず、次の予約で確認します。'
+    else:
+        label = '最終記録時点で観測成功。仮想比較を継続する設定です。'
+    lines = ['# 仮想1万円の比較：現在の記録', '', label, '',
+             '実資金・実注文なし。各方式の仮想1万円を比較する実験です。', '',
+             '- 新規実験ID：`' + summary['experiment_id'] + '`',
+             '- 開始：' + summary['started_jst'],
+             '- 最終相場確認：' + str(summary['last_observed_jst'] or 'まだ確認していません'),
+             '- 未確認の15分区間：' + str(summary['missing_slots']),
+             '- 相場取得の失敗回数：' + str(summary['failed_runs']), '',
+             '| 方式 | 売却費用控除後の資産 | 純損益 | 最大下落 | 往復売買数 |',
+             '| --- | ---: | ---: | ---: | ---: |']
+    names = {'eth_base': 'ETH・通常コスト', 'eth_stress': 'ETH・高コスト',
+             'multi_base': '複数銘柄・通常コスト', 'multi_stress': '複数銘柄・高コスト'}
+    for key, name in names.items():
+        a = summary['accounts'][key]
+        lines.append(f"| {name} | {a['equity_yen']:,.2f}円 | {a['pnl_yen']:+,.2f}円 | {a['mdd']:.2%} | {a['round_trips']} |")
+    lines += ['', '複数銘柄はBTC・ETH・XRP・SOLを共通の1万円で観測します。銘柄ごとに資金を追加しません。',
+              '旧クラウドの成績とは合算しません。最大下落は観測時点のみ、未確認区間の注文は後付けしません。', '',
+              f"[最新の実行記録](experiments/{summary['experiment_id']}/latest_run.json) · "
+              '[GitHubの実行一覧](https://github.com/yamatwo333/crypto-paper-lab/actions)', '',
+              'このページは帳簿と同じコミットに保存される時点の記録です。上の最終確認時刻と、実行一覧の失敗・停止も確認してください。',
+              '15分ごとの予約には遅延・欠落があり得ます。チャットへの自動通知はまだ接続していません。']
+    runner.write(directory.parents[1] / 'STATUS.md', '\n'.join(lines) + '\n')
+
+
 def save_result(directory, settings, db, result):
     state = runner.load(db)
     runner.export(state, directory)
@@ -76,6 +109,7 @@ def save_result(directory, settings, db, result):
     result['journal'] = ledger_store.export_ledger(Path(db.execute('PRAGMA database_list').fetchone()[2]), directory / 'ledger')
     save(directory / 'status.json', result['summary'])
     save(directory / 'latest_run.json', result)
+    status_page(directory, result)
     return result
 
 

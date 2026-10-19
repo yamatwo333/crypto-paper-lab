@@ -6,7 +6,8 @@ on:
       - 'scripts/probe.py'
   workflow_dispatch:
   schedule:
-    - cron: '7,22,37,52 * * * *'
+    # Equivalent times; refresh the schedule registration after missing triggers.
+    - cron: '7-59/15 * * * *'
 permissions:
   contents: write
   actions: write

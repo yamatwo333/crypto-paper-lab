@@ -7,7 +7,8 @@ on:
       - '.github/workflows/paper.yml'
       - 'scripts/launch_gate.py'
   schedule:
-    - cron: '12,27,42,57 * * * *'
+    # Equivalent times; refresh the schedule registration after missing triggers.
+    - cron: '12-59/15 * * * *'
   workflow_run:
     workflows: ['Public data and persistence validation']
     types: [completed]

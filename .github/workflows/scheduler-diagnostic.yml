@@ -1,0 +1,28 @@
+name: Temporary scheduler diagnostic
+on:
+  push:
+    paths:
+      - '.github/workflows/scheduler-diagnostic.yml'
+  workflow_dispatch:
+  schedule:
+    - cron: '3-58/5 * * * *'
+permissions:
+  contents: read
+jobs:
+  record-trigger:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 1
+    steps:
+      - name: Record only the trigger and UTC time
+        run: |
+          python3 - <<'PY'
+          import datetime, json, os
+          print(json.dumps({
+              'kind': 'temporary_scheduler_diagnostic_no_market_access',
+              'event': os.environ['GITHUB_EVENT_NAME'],
+              'run_id': os.environ['GITHUB_RUN_ID'],
+              'ref': os.environ['GITHUB_REF'],
+              'sha': os.environ['GITHUB_SHA'],
+              'observed_at': datetime.datetime.now(datetime.timezone.utc).isoformat(),
+          }, sort_keys=True))
+          PY

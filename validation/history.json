@@ -262,5 +262,137 @@
       "finished_ms": 1792401648413
     },
     "hash": "910c9650230966077934b87d47b27e3a47b5e760b1de91ae30bac60f26fb014f"
+  },
+  {
+    "payload": {
+      "seq": 3,
+      "previous_hash": "910c9650230966077934b87d47b27e3a47b5e760b1de91ae30bac60f26fb014f",
+      "started_ms": 1792402168024,
+      "slot": 1792401300000,
+      "event": "push",
+      "run_id": "39230438366",
+      "run_attempt": "1",
+      "previous_records_loaded": 2,
+      "success": true,
+      "policy_denial": false,
+      "kind": "public_data_storage_test_only",
+      "paper_trades": false,
+      "markets": {
+        "btc_jpy": {
+          "responses": [
+            {
+              "endpoint": "circuit_break_info",
+              "http": 200,
+              "api_success": 1,
+              "sha256": "83c5ae0bfc710eabad313d83fcd69ca71a65d8a692ecc58f995cddd0c24245c0"
+            },
+            {
+              "endpoint": "depth",
+              "http": 200,
+              "api_success": 1,
+              "sha256": "6643bfa89addd50c28973e314016f1838bfe166c57dfd98eb4371864e77f3fb8"
+            },
+            {
+              "endpoint": "candlestick/15min/20261019",
+              "http": 200,
+              "api_success": 1,
+              "sha256": "d743daf40ea24d8d53256f51f3f2e4da19c48bd8a2cadc1c67b0ed66331f1acd"
+            }
+          ],
+          "bid": 13116027.0,
+          "ask": 13116028.0,
+          "book_timestamp": 1792402168448,
+          "observed_ms": 1792402169226,
+          "candle_count": 38,
+          "last_candle_ms": 1792401300000
+        },
+        "eth_jpy": {
+          "responses": [
+            {
+              "endpoint": "circuit_break_info",
+              "http": 200,
+              "api_success": 1,
+              "sha256": "4979f9650c4ebe29b60333958edb8c3bff2719d77210cb2b8fa6bee60716e88d"
+            },
+            {
+              "endpoint": "depth",
+              "http": 200,
+              "api_success": 1,
+              "sha256": "2dcdbc6cf5e684ffde8b60de2564782e730b60366a6cfa5d1a2dc604500756c0"
+            },
+            {
+              "endpoint": "candlestick/15min/20261019",
+              "http": 200,
+              "api_success": 1,
+              "sha256": "3866223074a3cc2c424b0c310cdea322b44cc31792f3b87a507fca74504b1d50"
+            }
+          ],
+          "bid": 385889.0,
+          "ask": 385984.0,
+          "book_timestamp": 1792402169452,
+          "observed_ms": 1792402170838,
+          "candle_count": 38,
+          "last_candle_ms": 1792401300000
+        },
+        "xrp_jpy": {
+          "responses": [
+            {
+              "endpoint": "circuit_break_info",
+              "http": 200,
+              "api_success": 1,
+              "sha256": "aeafdd252d8f8efe8f2b1b10b91df131e6103c21c5018335b2b6b4de124d9283"
+            },
+            {
+              "endpoint": "depth",
+              "http": 200,
+              "api_success": 1,
+              "sha256": "d4ab1d446551e781cd6e854cac2449d11d9f9914e78bcde8ce9d3171e4f07a5c"
+            },
+            {
+              "endpoint": "candlestick/15min/20261019",
+              "http": 200,
+              "api_success": 1,
+              "sha256": "af3fe1583095062053f5c473485bb8d8de55ca22bc6809ba3d98390712df60c6"
+            }
+          ],
+          "bid": 208.086,
+          "ask": 208.087,
+          "book_timestamp": 1792402171470,
+          "observed_ms": 1792402172215,
+          "candle_count": 38,
+          "last_candle_ms": 1792401300000
+        },
+        "sol_jpy": {
+          "responses": [
+            {
+              "endpoint": "circuit_break_info",
+              "http": 200,
+              "api_success": 1,
+              "sha256": "46b59d0bf0ac7623f201d3b2f4f07ed0325adf3dff777dcddbfd0f06ee91db36"
+            },
+            {
+              "endpoint": "depth",
+              "http": 200,
+              "api_success": 1,
+              "sha256": "778c3e5bf63bb5a767edf96e51031c523f9c3471056c126b32181881d4859f8c"
+            },
+            {
+              "endpoint": "candlestick/15min/20261019",
+              "http": 200,
+              "api_success": 1,
+              "sha256": "ce82167ea91dd2da11f16e805f0321058e5b391a72330fec35b56bd3e5b954eb"
+            }
+          ],
+          "bid": 16745.8,
+          "ask": 16745.9,
+          "book_timestamp": 1792402172481,
+          "observed_ms": 1792402173920,
+          "candle_count": 38,
+          "last_candle_ms": 1792401300000
+        }
+      },
+      "finished_ms": 1792402174496
+    },
+    "hash": "d3c49fbde95ca532d039ec81bb30be87d6ffdb16f4bbe4f176d51e45342dccf4"
   }
 ]

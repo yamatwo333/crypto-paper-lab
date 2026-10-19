@@ -1,0 +1,7 @@
+{
+  "format": "paper-experiment-control-v1",
+  "phase": "awaiting_new_experiment_approval",
+  "experiment_id": null,
+  "approved_at": null,
+  "reason": "Latest ledgers from the previous cloud experiment are unavailable. A new experiment would be separate, never a reconstruction or continuation."
+}

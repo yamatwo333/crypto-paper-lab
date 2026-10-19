@@ -3,6 +3,7 @@ on:
   push:
     paths-ignore:
       - 'validation/**'
+      - 'experiments/**'
   pull_request:
   workflow_dispatch:
 permissions:

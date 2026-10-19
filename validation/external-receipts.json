@@ -1,0 +1,38 @@
+{
+  "payload": {
+    "provider": "cron-job.org",
+    "job_id": 8676656,
+    "repository": "yamatwo333/crypto-paper-lab",
+    "workflow": ".github/workflows/probe.yml",
+    "experiment_id": "new-20261019-github-comparison",
+    "verified_at": "2026-10-19T11:54:20.196738+00:00",
+    "checks": [
+      {
+        "scheduled_at": "2026-10-19T20:32:00+09:00",
+        "executed_at": "2026-10-19T20:32:09+09:00",
+        "github_completed_at": "2026-10-19T11:32:27Z",
+        "github_run_id": "39245335793",
+        "github_job_id": 118035773699,
+        "cron_history_row": "8676656-19-9-3",
+        "history_hash": "fe146dedf407f64ded386ea3887b78fa11dd7813f88c29b530a711fe0d97d33e",
+        "http_status": 200,
+        "github_event": "workflow_dispatch",
+        "github_conclusion": "success"
+      },
+      {
+        "scheduled_at": "2026-10-19T20:47:00+09:00",
+        "executed_at": "2026-10-19T20:47:07+09:00",
+        "github_completed_at": "2026-10-19T11:47:27Z",
+        "github_run_id": "39247151624",
+        "github_job_id": 118041747604,
+        "cron_history_row": "8676656-19-9-4",
+        "history_hash": "1885afa7ec672d239da8b2f6d754c57b7e1673589cbdb3c49adfbcd0bd895f75",
+        "http_status": 200,
+        "github_event": "workflow_dispatch",
+        "github_conclusion": "success"
+      }
+    ],
+    "format": "external-scheduled-storage-proof-v1"
+  },
+  "sha256": "0d960e779b9557bc624fefc84f0c025c552992ba98eb2060f7a87e2173e6bc33"
+}

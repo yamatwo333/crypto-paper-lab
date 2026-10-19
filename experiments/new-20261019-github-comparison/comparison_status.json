@@ -1,0 +1,58 @@
+{
+  "started_jst": "2026/10/19 20:58:22 JST",
+  "last_slot_jst": null,
+  "last_observed_jst": null,
+  "health": "starting",
+  "last_error": null,
+  "missing_slots": 0,
+  "failed_runs": 0,
+  "real_orders": false,
+  "accounts": {
+    "eth_base": {
+      "equity_yen": 10000.0,
+      "pnl_yen": 0.0,
+      "mdd": 0.0,
+      "round_trips": 0,
+      "orders": 0,
+      "fees_yen": 0.0
+    },
+    "multi_base": {
+      "equity_yen": 10000.0,
+      "pnl_yen": 0.0,
+      "mdd": 0.0,
+      "round_trips": 0,
+      "orders": 0,
+      "fees_yen": 0.0,
+      "positions": {
+        "btc_jpy": 0.0,
+        "eth_jpy": 0.0,
+        "sol_jpy": 0.0,
+        "xrp_jpy": 0.0
+      },
+      "minimum_lot_skipped_observations": 0
+    },
+    "eth_stress": {
+      "equity_yen": 10000.0,
+      "pnl_yen": 0.0,
+      "mdd": 0.0,
+      "round_trips": 0,
+      "orders": 0,
+      "fees_yen": 0.0
+    },
+    "multi_stress": {
+      "equity_yen": 10000.0,
+      "pnl_yen": 0.0,
+      "mdd": 0.0,
+      "round_trips": 0,
+      "orders": 0,
+      "fees_yen": 0.0,
+      "positions": {
+        "btc_jpy": 0.0,
+        "eth_jpy": 0.0,
+        "sol_jpy": 0.0,
+        "xrp_jpy": 0.0
+      },
+      "minimum_lot_skipped_observations": 0
+    }
+  }
+}

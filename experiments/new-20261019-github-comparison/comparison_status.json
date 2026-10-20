@@ -1,7 +1,7 @@
 {
   "started_jst": "2026/10/19 20:58:22 JST",
-  "last_slot_jst": "2026/10/20 11:00:00 JST",
-  "last_observed_jst": "2026/10/20 11:02:35 JST",
+  "last_slot_jst": "2026/10/20 11:15:00 JST",
+  "last_observed_jst": "2026/10/20 11:17:36 JST",
   "health": "ok",
   "last_error": null,
   "missing_slots": 0,
@@ -29,7 +29,7 @@
         "sol_jpy": 0.0,
         "xrp_jpy": 0.0
       },
-      "minimum_lot_skipped_observations": 30
+      "minimum_lot_skipped_observations": 31
     },
     "eth_stress": {
       "equity_yen": 10000.0,
@@ -52,7 +52,7 @@
         "sol_jpy": 0.0,
         "xrp_jpy": 0.0
       },
-      "minimum_lot_skipped_observations": 30
+      "minimum_lot_skipped_observations": 31
     }
   }
 }
